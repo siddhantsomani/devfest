@@ -4,7 +4,6 @@ from google.cloud import storage
 def videoToAudio(fileName):
     # flac: ffmpeg -i NLP.mp3 fileout.flac
     # mp3: ffmpeg -i NLP.mp4 -vn -acodec libmp3lame -ac 2 -qscale:a 4 -ar 48000 audio.mp3
-
     if(fileName.find(".")<0):
         fileName = fileName+".mp4"
     os.system("ffmpeg -i "+fileName+" -vn -acodec libmp3lame -ac 2 -qscale:a 4 -ar 48000 " + fileName[:-4] + ".mp3")
