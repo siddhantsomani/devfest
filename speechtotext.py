@@ -40,9 +40,6 @@ from google.cloud import translate
 # Instantiates a client
 translate_client = translate.Client()
 
-# The text to translate
-# text = u'Hello world'
-# The target language
 target = 'en'
 
 # Translates some text into Russian
@@ -53,33 +50,8 @@ translation = translate_client.translate(
 print(u'Text: {}'.format(text))
 print(u'Translation: {}'.format(translation['translatedText']))
 
-
-
-import urllib;
-import urllib2;
 from gtts import gTTS;
 
 translated = translation['translatedText'];
 tts = gTTS(text=translated, lang=target, speed=1);
 tts.save("outpt.mp3");
-
-# # https://translate.google.com/translate_tts?ie=UTF-8&q=%E0%A4%A8%E0%A4%AE%E0%A4%B8%E0%A5%8D%E0%A4%A4%E0%A5%87%20%E0%A4%A6%E0%A5%81%E0%A4%A8%E0%A4%BF%E0%A4%AF%E0%A4%BE&tl=hi&total=1&idx=0&textlen=13&tk=22034.402958&client=t&ttsspeed=0.24
-
-# print(translated);
-# # translated = "hello world";
-# # print(urllib.urlencode(translated, 'utf-8'))
-
-# args = {'q':translated, 'ie':'UTF-8', 'tl':target,'total':1, 'idx':0, 'textlen':13, 'tk':22034.402958,'client':'t','ttsspeed':0.24};
-
-# args = urllib.urlencode(args, 'utf-8');
-
-# urlfortranslate = u"https://translate.google.com/translate_tts?{}".format(args);
-# urlfortranslate = 'https://translate.google.com/translate_tts?ie=UTF-8&q=Hello%20world&tl=en&total=1&idx=0&textlen=11&tk=737657.864613&client=t'
-# print(urlfortranslate);
-# # print(required_url);
-
-# filedata = urllib2.urlopen(urlfortranslate)  
-# datatowrite = filedata.read()
-
-# with open('converted.mp3', 'wb') as f:  
-#     f.write(datatowrite)
