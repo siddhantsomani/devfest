@@ -27,17 +27,17 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="#">WELCOME</a>
+        <a class="navbar-brand" href="index.html">HOME</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link" href="#">Sign Up</a>
+              <a class="nav-link" href="speech.html">Ears</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Log In</a>
+              <a class="nav-link" href="video.html">Eyes</a>
             </li>
           </ul>
         </div>
@@ -49,7 +49,110 @@
         <div class="container">
           <h1 class="masthead-heading mb-0">Let us be your eyes and ears</h1>
           <!-- <h2 class="masthead-subheading mb-0">Will Rock Your Socks Off</h2> -->
-          <a href="#" class="btn btn-primary btn-xl rounded-pill mt-5">Learn More</a>
+          <!-- <a href="#" class="btn btn-primary btn-xl rounded-pill mt-5">Learn More</a> -->
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-primary btn-xl rounded-pill mt-5" data-toggle="modal" data-target="#exampleModalCenter">
+            Upload for Translation
+          </button>
+
+          <!-- Modal -->
+          <!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Upload File</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form enctype="multipart/form-data" id="modal_form_id"  method="POST" >
+          <input type="file" name="documents">
+          <select class="form-control" id="selLanguage" data-placeholder="Choose a Language...">
+              <option value="">Select Language</option>
+              <option value="AF">Afrikanns</option>
+						  <option value="SQ">Albanian</option>
+						  <option value="AR">Arabic</option>
+						  <option value="HY">Armenian</option>
+						  <option value="EU">Basque</option>
+						  <option value="BN">Bengali</option>
+						  <option value="BG">Bulgarian</option>
+						  <option value="CA">Catalan</option>
+						  <option value="KM">Cambodian</option>
+						  <option value="ZH">Chinese (Mandarin)</option>
+						  <option value="HR">Croation</option>
+						  <option value="CS">Czech</option>
+						  <option value="DA">Danish</option>
+						  <option value="NL">Dutch</option>
+						  <option value="EN">English</option>
+						  <option value="ET">Estonian</option>
+						  <option value="FJ">Fiji</option>
+						  <option value="FI">Finnish</option>
+						  <option value="FR">French</option>
+						  <option value="KA">Georgian</option>
+						  <option value="DE">German</option>
+						  <option value="EL">Greek</option>
+						  <option value="GU">Gujarati</option>
+						  <option value="HE">Hebrew</option>
+						  <option value="HI">Hindi</option>
+						  <option value="HU">Hungarian</option>
+						  <option value="IS">Icelandic</option>
+						  <option value="ID">Indonesian</option>
+						  <option value="GA">Irish</option>
+						  <option value="IT">Italian</option>
+						  <option value="JA">Japanese</option>
+						  <option value="JW">Javanese</option>
+						  <option value="KO">Korean</option>
+						  <option value="LA">Latin</option>
+						  <option value="LV">Latvian</option>
+						  <option value="LT">Lithuanian</option>
+						  <option value="MK">Macedonian</option>
+						  <option value="MS">Malay</option>
+						  <option value="ML">Malayalam</option>
+						  <option value="MT">Maltese</option>
+						  <option value="MI">Maori</option>
+						  <option value="MR">Marathi</option>
+						  <option value="MN">Mongolian</option>
+						  <option value="NE">Nepali</option>
+						  <option value="NO">Norwegian</option>
+						  <option value="FA">Persian</option>
+						  <option value="PL">Polish</option>
+						  <option value="PT">Portuguese</option>
+						  <option value="PA">Punjabi</option>
+						  <option value="QU">Quechua</option>
+						  <option value="RO">Romanian</option>
+						  <option value="RU">Russian</option>
+						  <option value="SM">Samoan</option>
+						  <option value="SR">Serbian</option>
+						  <option value="SK">Slovak</option>
+						  <option value="SL">Slovenian</option>
+						  <option value="ES">Spanish</option>
+						  <option value="SW">Swahili</option>
+						  <option value="SV">Swedish </option>
+						  <option value="TA">Tamil</option>
+						  <option value="TT">Tatar</option>
+						  <option value="TE">Telugu</option>
+						  <option value="TH">Thai</option>
+						  <option value="BO">Tibetan</option>
+						  <option value="TO">Tonga</option>
+						  <option value="TR">Turkish</option>
+						  <option value="UK">Ukranian</option>
+						  <option value="UR">Urdu</option>
+						  <option value="UZ">Uzbek</option>
+						  <option value="VI">Vietnamese</option>
+						  <option value="CY">Welsh</option>
+						  <option value="XH">Xhosa</option>
+						</select>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Upload</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
         </div>
       </div>
       <div class="bg-circle-1 bg-circle"></div>
@@ -58,7 +161,7 @@
       <div class="bg-circle-4 bg-circle"></div>
     </header>
 
-    <section>
+    <!-- <section>
       <div class="container">
         <div class="row align-items-center">
           <div class="col-lg-6 order-lg-2">
@@ -74,48 +177,51 @@
           </div>
         </div>
       </div>
-    </section>
-
-    <section>
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-lg-6">
-            <div class="p-5">
-              <img class="img-fluid rounded-circle" src="img/02.jpg" alt="">
-            </div>
-          </div>
-          <div class="col-lg-6">
-            <div class="p-5">
-              <h2 class="display-4">We salute you!</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
+    </section> -->
     <section>
       <div class="container">
         <div class="row align-items-center">
           <div class="col-lg-6 order-lg-2">
-            <div class="p-5">
-              <img class="img-fluid rounded-circle" src="img/03.jpg" alt="">
-            </div>
+            <video width="600" height="450" class = "p-5" controls>
+              <source src="../output.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+            </video>
           </div>
+
           <div class="col-lg-6 order-lg-1">
             <div class="p-5">
-              <h2 class="display-4">Let there be rock!</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
+              <h2 class="display-4">Final Translated Video</h2>
+              <button type="button" class="btn btn-primary" data-dismiss="modal">Scene Details</button>
+              <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <div class="p-5">
+              <img class="img-fluid rounded-circle" src="../1.png" alt="">
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="p-5">
+              <p>There is Oprah Winfrey. There's also glasses.</p>
+              <p>Translated: Está Oprah Winfrey. También hay lentes</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
+
+
     <!-- Footer -->
     <footer class="py-5 bg-black">
       <div class="container">
-        <p class="m-0 text-center text-white small">Copyright &copy; Your Website 2018</p>
+        <p class="m-0 text-center text-white small">Copyright &copy; Armada 2018</p>
       </div>
       <!-- /.container -->
     </footer>
@@ -123,7 +229,7 @@
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
+    <script>$('.modal-dialog').parent().on('show.bs.modal', function(e){ $(e.relatedTarget.attributes['data-target'].value).appendTo('body'); })</script>
   </body>
 
 </html>

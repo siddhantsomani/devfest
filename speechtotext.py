@@ -21,7 +21,7 @@ def videoToAudio(fileName):
     return outputFileName
 
 speech_file = "nlp2.flac";
-mp4_file = "nlp.mp4"
+mp4_file = "Vo.mp4"
 speech_file = videoToAudio(mp4_file)
 output_mp4_file = "output.mp4"
 
@@ -92,7 +92,7 @@ from google.cloud import translate
 # Instantiates a client , text to speech starts here
 translate_client = translate.Client()
 
-target = 'hi'
+target = 'ES'
 
 # Translates some text into Russian
 translation = translate_client.translate(
