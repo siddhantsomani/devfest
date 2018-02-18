@@ -56,6 +56,10 @@
           <audio controls id = "myAudio" hidden>
             <source src="1.mp3" type="audio/mpeg">
           </audio>
+          <audio controls id = "myAudio2" hidden>
+            <source src="5.mp3" type="audio/mpeg">
+          </audio>
+          
           <!-- <audio controls id = "2">
             <source src="2.mp3" type="audio/mpeg">
           </audio>
@@ -70,9 +74,9 @@
           <button class= "btn btn-primary btn-xl rounded-pill mt-5" onclick="firstPlay()" type="button">Play Video</button>
           <button class ="btn btn-primary btn-xl rounded-pill mt-5" id="snap" onclick="snap()">Take screenshot</button>
           <script >
-            console.log("hi");
                 var video=document.querySelector('video');
                 var audio=document.querySelector('audio');
+                var audioMonkey = document.getElementById('myAudio2');
                 var canvas=document.querySelector('canvas');
                 var context=canvas.getContext('2d');
                 var w,h,ratio;
@@ -86,6 +90,9 @@
                 } 
                 function playAudio(){
                   audio.play();
+                }
+                function playMonkeyAudio(){
+
                 }
                 var timeStamp = [16,22,39,45];
                 var index = 0;
@@ -136,6 +143,7 @@
                   context.fillRect(0,0,w,h);
                   context.drawImage(video,0,0,w,h);
                   video.pause();
+                  audioMonkey.play();
                   var dataURL = canvas.toDataURL();
                   document.getElementById('myCanvas').src = dataURL;
                 }
@@ -181,7 +189,7 @@
       <div class="bg-circle-4 bg-circle"></div>
     </header>
 
-    <section>
+    <!-- <section>
       <div class="container">
         <div class="row align-items-center">
           <div class="col-lg-6 order-lg-2">
@@ -234,7 +242,7 @@
         </div>
       </div>
     </section>
-
+ -->
     <!-- Footer -->
     <footer class="py-5 bg-black">
       <div class="container">
