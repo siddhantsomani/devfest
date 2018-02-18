@@ -116,5 +116,5 @@ for i in range(n-1):
     joinTwoFiles("outpt.mp3", "temp.mp3");
 
 
-os.system(output_mp4_file);
+os.system("rm " + output_mp4_file);
 os.system("ffmpeg -i " + mp4_file + " -i outpt.mp3 -c:v copy -c:a aac -strict experimental -map 0:v:0 -map 1:a:0 " + output_mp4_file);
