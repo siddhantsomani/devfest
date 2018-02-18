@@ -46,10 +46,133 @@
 
     <header class="masthead text-center text-white">
       <div class="masthead-content">
-        <div class="container">
-          <h1 class="masthead-heading mb-0">Let us be your eyes and ears</h1>
-          <!-- <h2 class="masthead-subheading mb-0">Will Rock Your Socks Off</h2> -->
-          <a href="#" class="btn btn-primary btn-xl rounded-pill mt-5">Learn More</a>
+        <div class="masthead-content">
+          <!-- <h1 class="masthead-heading mb-0">Let us be your eyes and ears</h1> -->
+          <h2 class="masthead-subheading mb-0">Let us be your eyes</h2>
+        <div >
+          <video controls style="width: 480px; height: 350px; padding-right: 10px">
+              <source src="Duke2.mp4" type="video/mp4">
+          </video>
+          <audio controls id = "myAudio" hidden>
+            <source src="1.mp3" type="audio/mpeg">
+          </audio>
+          <!-- <audio controls id = "2">
+            <source src="2.mp3" type="audio/mpeg">
+          </audio>
+          <audio controls id = "3">
+            <source src="3.mp3" type="audio/mpeg">
+          </audio>
+          <audio controls id = "4">
+            <source src="4.mp3" type="audio/mpeg">
+          </audio> -->
+          <canvas style = "width: 470px; height: 320px; padding-left: 10px" id="myCanvas"></canvas>
+          <br></br>
+          <button class= "btn btn-primary btn-xl rounded-pill mt-5" onclick="firstPlay()" type="button">Play Video</button>
+          <button class ="btn btn-primary btn-xl rounded-pill mt-5" id="snap" onclick="snap()">Take screenshot</button>
+          <script >
+            console.log("hi");
+                var video=document.querySelector('video');
+                var audio=document.querySelector('audio');
+                var canvas=document.querySelector('canvas');
+                var context=canvas.getContext('2d');
+                var w,h,ratio;
+                function firstPlay(){
+
+                  video.play();
+                }
+                function playVid() { 
+                  video.currentTime +=0.003; 
+                    video.play(); 
+                } 
+                function playAudio(){
+                  audio.play();
+                }
+                var timeStamp = [16,22,39,45];
+                var index = 0;
+
+                //var current = video.currentTime;
+                // function videoPlayPause(timeStamp,index){
+                //   console.log(index + "," + toInt(current) +","+timeStamp[index]);
+                //   if(timeStamp[index] == toInt(current)){
+                //     console.log('Stop Now');
+                //     index++;
+                //   }
+
+                // }
+                //function toInt(n){ return Math.round(Number(n)); };
+                // function videoTime(){
+                //   playVid();
+                //   // myVar = setInterval(function,1000);
+                // }
+                var t = timeStamp[index];
+                function timetoPause(){
+                  if(this.currentTime >= t) {
+                        video.pause();
+                        
+                        index++;
+                        document.getElementById("myAudio").src = index+".mp3";
+                        audio.play();
+                        
+                        t = timeStamp[index];
+                        setTimeout(playVid, 5000);
+                    }
+                }
+                var aud = document.getElementById("myAudio");
+                aud.onended = function() {
+                    playVid();
+                    console.log("The audio has ended");
+                };
+                video.addEventListener("timeupdate", timetoPause);
+                video.addEventListener('loadedmetadata',function()
+                {
+                ratio=video.videoWidth/video.videoHeight;
+                w=video.videoWidth;
+                    h=video.videoHeight;
+                canvas.width=w;
+                    canvas.height=h;
+                },false);
+               function snap()
+              {
+                  context.fillRect(0,0,w,h);
+                  context.drawImage(video,0,0,w,h);
+                  video.pause();
+                  var dataURL = canvas.toDataURL();
+                  document.getElementById('myCanvas').src = dataURL;
+                }
+               
+          </script>
+
+          <!-- <video controls>
+              <source src="small.mp4" type="video/mp4"></source>
+             </video>
+             <canvas id="canvas" width="640" height="480"></canvas>
+             <button id="snap" onclick="snap()">Snap Photo</button>
+                <script>
+                var video=document.querySelector('video');
+                var canvas=document.querySelector('canvas');
+                var context=canvas.getContext('2d');
+                var w,h,ratio;
+                video.addEventListener('loadedmetadata',function()
+                {
+                ratio=video.videoWidth/video.videoHeight;
+                w=video.videoWidth-100;
+                    h=parseInt(w/ratio,10);
+                canvas.width=w;
+                    canvas.height=h;
+                },false);
+               function snap()
+              {
+                    context.fillRect(0,0,w,h);
+                context.drawImage(video,0,0,w,h);
+                }
+               </script> -->
+              <!-- <video autoplay loop class="embed-responsive-item">
+                  <source src=http://techslides.com/demos/sample-videos/small.mp4 type=video/mp4>
+              </video> -->
+          </div>
+
+
+          <!-- <a href="#" class="btn btn-primary btn-xl rounded-pill mt-5">Learn More</a> -->  
         </div>
       </div>
       <div class="bg-circle-1 bg-circle"></div>
