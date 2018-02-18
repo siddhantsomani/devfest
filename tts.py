@@ -1,6 +1,6 @@
 # Imports the Google Cloud client library
 from google.cloud import translate
-text = "There is Oprah Winfrey. There's also eyewear."
+text = "There is monkey. There is also fauna."
 # Instantiates a client , text to speech starts here
 translate_client = translate.Client()
 
@@ -18,5 +18,5 @@ from gtts import gTTS;
 
 translated = translation['translatedText'];
 tts = gTTS(text=translated, lang=target, speed=1);
-tts.save("oprah.mp3"); #TTS here
+tts.save("monkey.mp3"); #TTS here
 # TTS ends here
