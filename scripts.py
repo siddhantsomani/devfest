@@ -31,7 +31,7 @@ def upload_blob(bucket_name, source_file_name, destination_blob_name):
 
 if __name__ == "__main__":
     # videoToAudio("/Users/Siddhant/Desktop/NLP.mp4")
-    upload_blob(bucket_name="devfest-devfest", source_file_name="/Users/Siddhant/Downloads/video1.mp4", destination_blob_name="video1.mp4")
+    upload_blob(bucket_name="devfest-devfest", source_file_name="/Users/Siddhant/Desktop/MI6.mp4", destination_blob_name="MI6.mp4")
 
 
 
