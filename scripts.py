@@ -8,10 +8,13 @@ def videoToAudio(fileName):
         fileName = fileName+".mp4"
     os.system("ffmpeg -i "+fileName+" -vn -acodec libmp3lame -ac 2 -qscale:a 4 -ar 48000 " + fileName[:-4] + ".mp3")
     print("ffmpeg -i "+fileName+" -vn -acodec libmp3lame -ac 2 -qscale:a 4 -ar 48000 " + fileName[:-4] + ".mp3")
-    os.system("ffmpeg -i " + fileName[:-4] + ".mp3 -ac 1 " + " flac "+fileName[:-4]+".flac")
-    print("ffmpeg -i " + fileName[:-4] + ".mp3 -ac 1 " + " "+fileName[:-4]+".flac")
-    outputFileName = fileName[:-4]+".flac"
+    os.system("ffmpeg -i " + fileName[:-4] + ".mp3 " + ""+fileName[:-4]+".flac")
+    print("ffmpeg -i " + fileName[:-4] + ".mp3 " + " "+fileName[:-4]+".flac")
+    os.system("ffmpeg -i " + fileName[:-4] + ".flac -ac 1 " + ""+fileName[:-4]+"final.flac")
+    outputFileName = fileName[:-4]+"final.flac"
     return outputFileName
+
+
 
 def upload_blob(bucket_name, source_file_name, destination_blob_name):
     """Uploads a file to the bucket."""
@@ -28,8 +31,7 @@ def upload_blob(bucket_name, source_file_name, destination_blob_name):
 
 if __name__ == "__main__":
     # videoToAudio("/Users/Siddhant/Desktop/NLP.mp4")
-    upload_blob(bucket_name="devfest-devfest", source_file_name="/Users/Siddhant/Desktop/NLP.mp4", destination_blob_name="nlpp.mp4")
-
+    upload_blob(bucket_name="devfest-devfest", source_file_name="/Users/Siddhant/Downloads/video1.mp4", destination_blob_name="video1.mp4")
 
 
 

@@ -5,9 +5,24 @@ from google.cloud import speech
 from google.cloud.speech import enums
 from google.cloud.speech import types
 import io
+import os
+
+def videoToAudio(fileName):
+    # flac: ffmpeg -i NLP.mp3 fileout.flac
+    # mp3: ffmpeg -i NLP.mp4 -vn -acodec libmp3lame -ac 2 -qscale:a 4 -ar 48000 audio.mp3
+    if(fileName.find(".")<0):
+        fileName = fileName+".mp4"
+    os.system("ffmpeg -i "+fileName+" -vn -acodec libmp3lame -ac 2 -qscale:a 4 -ar 48000 " + fileName[:-4] + ".mp3")
+    print("ffmpeg -i "+fileName+" -vn -acodec libmp3lame -ac 2 -qscale:a 4 -ar 48000 " + fileName[:-4] + ".mp3")
+    os.system("ffmpeg -i " + fileName[:-4] + ".mp3 " + ""+fileName[:-4]+".flac")
+    print("ffmpeg -i " + fileName[:-4] + ".mp3 " + " "+fileName[:-4]+".flac")
+    os.system("ffmpeg -i " + fileName[:-4] + ".flac -ac 1 " + ""+fileName[:-4]+"final.flac")
+    outputFileName = fileName[:-4]+"final.flac"
+    return outputFileName
 
 speech_file = "nlp2.flac";
 mp4_file = "nlp.mp4"
+speech_file = videoToAudio(mp4_file)
 output_mp4_file = "output.mp4"
 
 
@@ -38,6 +53,7 @@ for result in response.results:
     print('Transcript: {}'.format(result.alternatives[0].transcript))
     texts.append(result.alternatives[0].transcript);
     print('Confidence: {}'.format(result.alternatives[0].confidence))
+#Another paramter for word(and start time/end time)
 # [END migration_async_response]
 
 
@@ -73,7 +89,7 @@ print(texts[0]);
 # Imports the Google Cloud client library
 from google.cloud import translate
 
-# Instantiates a client
+# Instantiates a client , text to speech starts here
 translate_client = translate.Client()
 
 target = 'hi'
@@ -81,7 +97,7 @@ target = 'hi'
 # Translates some text into Russian
 translation = translate_client.translate(
     text,
-    target_language=target)
+    target_language=target) #target language code
 
 print(u'Text: {}'.format(text))
 print(u'Translation: {}'.format(translation['translatedText']))
@@ -90,8 +106,8 @@ from gtts import gTTS;
 
 translated = translation['translatedText'];
 tts = gTTS(text=translated, lang=target, speed=1);
-tts.save("outpt.mp3");
-
+tts.save("outpt.mp3"); #TTS here
+# TTS ends here
 import os;
 def joinTwoFiles(file1,file2):
     os.system("rm file1.mp3");
@@ -116,5 +132,5 @@ for i in range(n-1):
     joinTwoFiles("outpt.mp3", "temp.mp3");
 
 
-os.system("rm " + output_mp4_file);
+# os.system("rm " + output_mp4_file);
 os.system("ffmpeg -i " + mp4_file + " -i outpt.mp3 -c:v copy -c:a aac -strict experimental -map 0:v:0 -map 1:a:0 " + output_mp4_file);
